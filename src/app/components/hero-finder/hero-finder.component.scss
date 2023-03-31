@@ -1,0 +1,6 @@
+:host ::ng-deep mat-form-field .mdc-text-field--filled:not(.mdc-text-field--disabled){
+    background-color: rgb(148 163 184) !important;
+  }
+  ::ng-deep .mat-mdc-input-element::placeholder{
+    color: white !important;
+}
