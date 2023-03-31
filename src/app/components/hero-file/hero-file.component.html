@@ -1,0 +1,31 @@
+<div class="container h-fit justify-center mx-auto p-6 lg:flex lg:items-center" *ngIf="hero">
+    <div>
+        <h1 class="text-3xl text-white text-center mb-3">{{hero.name}}</h1>
+        <div class="grid md:grid-rows-2 lg:grid-flow-col gap-4">
+            <div class="flex justify-center lg:justify-center row-span-3">            
+                <img  [src]="hero.thumbnail.path + '/portrait_uncanny.' + hero.thumbnail.extension" alt="{{hero.name}}" class="w-fit lg:h-[96%]">
+            </div>
+            <div class="border-2  border-slate-800 rounded-lg lg:col-span-2 ">
+               <div class=" text-white p-3">
+                    <p class="text-center lg:text-left"><b>Brief description: </b></p>
+                    <p>{{hero.description}}</p>
+                    <p></p>
+                    <p></p>
+               </div>
+            </div>
+               
+            <div class="border-2 lg:col-span-2 max-h-96 border-red-950 ">
+                <div class="hero-list h-full">
+                    <div class="h-52 lg:w-[40rem]">
+                        <div *ngFor="let hero of comics" class=" m-4 shadow-md rounded-lg inline-block w-32 overflow-ellipsis">
+                            <img [src]="hero.thumbnail.path + '/portrait_uncanny.' + hero.thumbnail.extension" alt="{{hero.name}}" class="w-32 h-40 mx-auto mb-4">
+                            <!-- <div class="text-lg w-full font-bold mb-2 break-all hyphens-auto">{{hero.title}}</div> -->
+                          </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+</div>
