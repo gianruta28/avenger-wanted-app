@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class GetHeroesService {
   private readonly API_KEY = 'be500b19bf68d2f469d00bf562be0962';
   private readonly API_URL = 'https://gateway.marvel.com/v1/public/characters';
+  private readonly API_URL_COMICS = 'https://gateway.marvel.com/v1/public/comics';
 
   constructor(private http: HttpClient) { }
 
@@ -28,5 +29,15 @@ export class GetHeroesService {
       apikey: this.API_KEY
     };
     return this.http.get<any>(`${this.API_URL}/${id}`, { params });
+  }
+
+  getComicsFromHero(id: number): Observable<any>{
+    const params: any = {
+      apikey: this.API_KEY,
+      limit: 20,
+      characters: id
+    };
+    return this.http.get<any>(this.API_URL_COMICS, { params });
+
   }
 }
