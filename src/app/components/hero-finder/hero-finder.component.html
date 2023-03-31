@@ -4,7 +4,11 @@
 
 
     <mat-form-field class="w-full p-2" >
-        <input type="text" class="text-white"  [formControl]="nameFilter" matInput placeholder="Search heroes"  [disabled]="loading">
+        <input type="text" class="text-white"  [formControl]="nameFilter" matInput placeholder="Search heroes">
+       
+        <button mat-mini-fab matSuffix color="white" class="mr-3" (click)="refreshHeroes()" aria-label="Example icon button with a delete icon">
+            <mat-icon class="text-white">refresh</mat-icon>
+          </button>
     </mat-form-field>
  
     
@@ -22,13 +26,10 @@
         <img class="w-24 h-24" src="assets/img/spinning-loading.gif" alt="">
     </div>
 
-    <div class="w-10 h-10 bg-white p-2 fixed bottom-2 right-3 rounded-md" (click)="scrollToTop()" *ngIf="scrolled" >
+    <div class="w-10 h-10 bg-white p-2 fixed bottom-2 right-3 rounded-md cursor-pointer" (click)="scrollToTop()" *ngIf="scrolled" >
         <mat-icon aria-hidden="false" aria-label="Example home icon" class="scale-150" >expand_less</mat-icon>
 
       </div>
-  
-    <!-- <div *ngIf="noMoreHeroes" class="text-center my-4">
-      <p>No more heroes to load</p>
-    </div> -->
-  </div>
+
+</div>
   

@@ -72,9 +72,12 @@ export class HeroFinderComponent implements OnInit {
     }
   }
 
-  filterHeroes(){
-    
-  
+  refreshHeroes(){
+    this.noMoreHeroes = false;
+    this.nameFilter.setValue('');
+    this.currentPage = 0;
+      this.heroes = [];
+      this.loadHeroes();
   }
 
   scrollToTop(): void {
