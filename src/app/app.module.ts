@@ -18,6 +18,12 @@ import { InterceptorService } from './services/interceptor.service';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
 import { DialogService } from './services/dialog-service.service';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { AuthComponent } from './components/auth/auth.component';
+import { CookieService } from 'ngx-cookie-service';
+import { HandleSessionService } from './services/handle-session.service';
+
+
 
 @NgModule({
   declarations: [
@@ -26,6 +32,7 @@ import { DialogService } from './services/dialog-service.service';
     HeroFinderComponent,
     HeroFileComponent,
     ErrorDialogComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +51,8 @@ import { DialogService } from './services/dialog-service.service';
     {provide: GetHeroesService, useClass: GetHeroesService},
     {provide: DialogService, useClass: DialogService},
     {provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi:true},
+    {provide: CookieService, useClass: CookieService},
+    {provide: HandleSessionService, useClass: HandleSessionService}
   ],
   bootstrap: [AppComponent]
 })
