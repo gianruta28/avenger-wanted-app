@@ -12,15 +12,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './components/header/header.component';
 import { HeroFinderComponent } from './components/hero-finder/hero-finder.component';
 import { GetHeroesService } from './services/get-heroes.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeroFileComponent } from './components/hero-file/hero-file.component';
+import { InterceptorService } from './services/interceptor.service';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ErrorDialogComponent } from './components/error-dialog/error-dialog.component';
+import { DialogService } from './services/dialog-service.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HeroFinderComponent,
-    HeroFileComponent
+    HeroFileComponent,
+    ErrorDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,10 +36,14 @@ import { HeroFileComponent } from './components/hero-file/hero-file.component';
     HttpClientModule,
     MatIconModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule,
+    MatTooltipModule,
   ],
   providers: [
-    {provide: GetHeroesService, useClass: GetHeroesService}
+    {provide: GetHeroesService, useClass: GetHeroesService},
+    {provide: DialogService, useClass: DialogService},
+    {provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi:true},
   ],
   bootstrap: [AppComponent]
 })

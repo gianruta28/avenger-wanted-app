@@ -1,0 +1,15 @@
+<div class="bg-slate-200 border-2 border-red-600  rounded-md">
+    <div class="flex justify-between">
+        
+        <h1 mat-dialog-title>Error </h1> 
+        <div class="w-20 h-full text-center">
+
+            <mat-icon class="text-red-600 mt-3 h-full w-1/2 text-3xl  self" >error_outlined</mat-icon>
+        </div>
+    </div>
+    <div mat-dialog-content>{{message}}</div>
+    <div mat-dialog-actions>
+        <!-- <button class="border-2 border-black py-1 px-3 rounded-md hover:bg-slate-300 hover:border-none" mat-dialog-close>Close</button> -->
+        <button class="py-1 px-3 rounded-md "  mat-stroked-button mat-dialog-close>Close</button>
+    </div>
+</div>

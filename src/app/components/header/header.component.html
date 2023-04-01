@@ -1,6 +1,12 @@
-<mat-toolbar class="flex justify-center py-10 bg-blue-700">
+<mat-toolbar class="py-10 bg-blue-700">
    
-    <span class="font-semibold text-white">Avengers Wanted!!!</span>
+    <button *ngIf="showBackButton" mat-icon-button class="example-icon text-white" (click)="goHomePage()" aria-label="Example icon-button with menu icon">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    <div class="w-full flex justify-center ">
+        
+        <span class="font-semibold text-white">Avengers Wanted!!!</span>
+    </div>
     
     
   </mat-toolbar>
