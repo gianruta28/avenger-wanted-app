@@ -5,3 +5,71 @@
     overflow-y: hidden;
     white-space: nowrap;
   }
+
+// .hero-list::-webkit-scrollbar {
+//     width: 16px;
+// }
+
+// .hero-list::-webkit-scrollbar-track {
+//     border-radius: 8px;
+//     background-color: rgb(100 116 139);
+//     border: 1px solid rgb(100 116 139);
+// }
+
+// .hero-list::-webkit-scrollbar-thumb {
+//     border-radius: 8px;
+//   border: 3px solid transparent;
+//    background-clip: content-box;
+//     background-color: #d55959;
+// }
+
+// Tutorial => slug.vercel.app/s/scrollbar
+
+@mixin scroll-style($size: 10px,
+  $thumb: none,
+  $thumb-color: grey,
+  $thumb-radius: 10px,
+  $track-color: transparent,
+  $track-radius: 10px) {
+
+  // Respaldo para Firefox
+  scrollbar-color: $thumb-color $track-color;
+  scrollbar-width: thin;
+
+  // Navegadores basados en webkit
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+    &-track {
+      background-color: $track-color;
+      border-radius: $track-radius;
+    }
+    &-thumb {
+      background-color: $thumb-color;
+      background-image: $thumb;
+      border-radius: $thumb-radius;
+    }
+  }
+}
+
+body {
+  background-color: #18181b;
+}
+
+.scroll {
+  @include scroll-style(
+      $size: var(--scroll-size, 10px),
+
+      $thumb:  var(--scroll-thumb, none),
+      $thumb-color: var(--scroll-thumb-color, grey),
+      $thumb-radius: var(--scroll-thumb-radius, var(--scroll-radius)),
+    
+      $track-color: var(--scroll-track, transparent),
+      $track-radius: var(--scroll-track-radius, var(--scroll-radius)),
+    );
+    --scroll-size: 8px;
+    --scroll-radius: 10px;
+    --scroll-track: rgb(255 255 255 / 10%);
+    --scroll-thumb-color: rgb(37 99 235/ 80%);
+}
+

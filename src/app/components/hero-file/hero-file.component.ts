@@ -10,6 +10,7 @@ import { GetHeroesService } from 'src/app/services/get-heroes.service';
 export class HeroFileComponent implements OnInit{
 
   private id: number = 0;
+  loadingComics: boolean = false;
   hero: any;
   comics: any[] = [];
   constructor(private _Activatedroute:ActivatedRoute, private getHeroService: GetHeroesService){
@@ -23,13 +24,17 @@ export class HeroFileComponent implements OnInit{
     this.getHeroService.getHeroById(this.id).subscribe(
       (res => {
         this.hero = res.data.results[0];
-        console.log(this.hero);
+        if(!this.hero.description || this.hero.description === ''){
+          this.hero.description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam commodo mollis massa. Sed semper ac urna id fringilla. Pellentesque congue sem eget justo pharetra, a faucibus leo accumsan. Maecenas imperdiet tortor non est commodo, sit amet ullamcorper massa blandit. Nulla non hendrerit justo.'
+        }
         
       })
     )
-
+    
+    this.loadingComics = true;
     this.getHeroService.getComicsFromHero(this.id).subscribe(
       (res => {
+        this.loadingComics = false;
         console.log(res.data);
         this.comics = res.data.results
       })
