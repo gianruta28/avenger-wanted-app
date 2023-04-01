@@ -1,11 +1,24 @@
 <mat-toolbar class="py-10 bg-blue-700">
    
+    
     <button *ngIf="showBackButton" mat-icon-button class="example-icon text-white" (click)="goHomePage()" aria-label="Example icon-button with menu icon">
         <mat-icon>arrow_back</mat-icon>
     </button>
-    <div class="w-full flex justify-center ">
+    <div class="lg:hidden example-spacer">
+    </div>
+    <div class="lg:w-full lg:text-center">
         
-        <span class="font-semibold text-white">Avengers Wanted!!!</span>
+        <span *ngIf="!agent" class="font-semibold text-white">Avengers Wanted!!!</span>
+        <span  class="lg:hidden font-semibold text-white">Avengers Wanted!!!</span>
+    </div>
+
+    <div class="example-spacer">
+    </div>
+    <div *ngIf="agent" class="md:flex  text-white">
+        <p class="hidden lg:inline py-2">Logged in as: {{agent}}</p>
+        <button mat-icon-button class="example-icon text-white" (click)="logout()" aria-label="Example icon-button with menu icon">
+            <mat-icon>logout</mat-icon>
+        </button>
     </div>
     
     
