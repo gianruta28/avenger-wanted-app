@@ -10,7 +10,6 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 To log in within the app you will need a SHIELD Agent credential. You can use any of these that are provided here:
 
 1. Agent: Phil Coulson
-<<<<<<< HEAD
    - username: phil
    - password: c0u1S0n
 
@@ -21,15 +20,3 @@ To log in within the app you will need a SHIELD Agent credential. You can use an
 3. Agent: Maria Hill
    - username: maria_hill
    - password: pa$$w0rd
-=======
- - username: phil
- - password: c0u1S0n
-
-2. Agent: Nick Fury
- - username: nick_fury
- - password: m0th3erF*
-
-3. Agent: Maria Hill
- - username: maria_hill
- - password: pa$$w0rd
->>>>>>> master
