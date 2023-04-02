@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
+Before running the `ng serve` command is important to install the node dependencies with `npm install`
 ## Authentication
 To log in within the app you will need a SHIELD Agent credential. You can use any of these that are provided here:
 
