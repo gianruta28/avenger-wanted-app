@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, fromEvent } from 'rxjs';
+import { Hero } from 'src/app/model/hero';
 import { GetHeroesService } from 'src/app/services/get-heroes.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { GetHeroesService } from 'src/app/services/get-heroes.service';
 })
 export class HeroFinderComponent implements OnInit {
 
-  heroes: any[] = [];
+  heroes: Hero[] = [];
   currentPage = 0;
   loading = false;
   noMoreHeroes = false;
@@ -52,13 +53,15 @@ export class HeroFinderComponent implements OnInit {
     this.loading = true;
     this.heroService.getHeroes(this.currentPage * 20, this.nameFilter.value)
       .subscribe(res => {
-        this.heroes.push(...res.data.results);
+        res.data.results.map((result: Hero) => {
+          this.heroes.push(result)
+        })
+        
         this.currentPage++;
         this.loading = false;
         if (res.data.results.length < 20) {
           this.noMoreHeroes = true;
         }
-        console.log(this.heroes);
         
       });
   }

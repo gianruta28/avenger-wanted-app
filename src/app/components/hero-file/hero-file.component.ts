@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Comic } from 'src/app/model/comic';
+import { Hero } from 'src/app/model/hero';
 import { GetHeroesService } from 'src/app/services/get-heroes.service';
 
 @Component({
@@ -11,8 +13,8 @@ export class HeroFileComponent implements OnInit{
 
   private id: number = 0;
   loadingComics: boolean = false;
-  hero: any;
-  comics: any[] = [];
+  hero: Hero;
+  comics: Comic[] = [];
   constructor(private _Activatedroute:ActivatedRoute, private getHeroService: GetHeroesService){
    
     this._Activatedroute.paramMap.subscribe((params: any) => { 
