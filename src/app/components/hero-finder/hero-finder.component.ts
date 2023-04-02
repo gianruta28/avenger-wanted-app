@@ -59,10 +59,10 @@ export class HeroFinderComponent implements OnInit {
         
         this.currentPage++;
         this.loading = false;
+        
         if (res.data.results.length < 20) {
           this.noMoreHeroes = true;
         }
-        
       });
   }
 

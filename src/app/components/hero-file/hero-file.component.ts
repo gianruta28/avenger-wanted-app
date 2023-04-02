@@ -37,7 +37,6 @@ export class HeroFileComponent implements OnInit{
     this.getHeroService.getComicsFromHero(this.id).subscribe(
       (res => {
         this.loadingComics = false;
-        console.log(res.data);
         this.comics = res.data.results
       })
     )

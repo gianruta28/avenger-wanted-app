@@ -15,7 +15,6 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
     let log = this.sessionHandler.isLoggedIn();
-    console.log(log);
     
   }
 }

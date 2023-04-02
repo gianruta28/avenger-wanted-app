@@ -24,9 +24,7 @@ export class HeaderComponent implements OnInit{
 
   ngOnInit(){
     
-    this.sessionManager.sessionAction$.subscribe((value) => {
-      console.log(value);
-      
+    this.sessionManager.sessionAction$.subscribe((value) => {      
       if(value instanceof Object){
         this.agent = '';
       }else {
@@ -35,8 +33,6 @@ export class HeaderComponent implements OnInit{
     })
     
     this.agent = JSON.parse(this.sessionManager.getSession()).name;
-    console.log(this.agent.name);
-    
   }
 
   goHomePage(){
