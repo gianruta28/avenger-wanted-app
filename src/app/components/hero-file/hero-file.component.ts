@@ -10,7 +10,7 @@ import { GetHeroesService } from 'src/app/services/get-heroes.service';
   styleUrls: ['./hero-file.component.scss']
 })
 export class HeroFileComponent implements OnInit{
-
+  private hola: string;
   private id: number = 0;
   loadingComics: boolean = false;
   hero: Hero;
